@@ -92,6 +92,26 @@ body {
 
 .invite__time {
 }
+p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 430px) {
+  .invite__text {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+    line-height: 105%;
+  }
+  .invite__name {
+    font-size: 28px;
+    line-height: 105%;
+  }
+  .invite__title {
+    font-size: 28px;
+    line-height: 105%;
+  }
+}
 @media (max-width: 396px) {
   .invite__text {
     padding-top: 30px;

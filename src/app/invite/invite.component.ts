@@ -114,7 +114,7 @@ export class InviteComponent implements OnInit {
     this.isMapActive = !this.isMapActive;
     setTimeout(() => {
       this.isInviteActive = true;
-    }, 1000); // Пример 10 секунд
+    }, 10000); // Пример 10 секунд
   }
 
   playAudio(): void {
