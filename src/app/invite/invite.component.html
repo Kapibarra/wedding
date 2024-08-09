@@ -1,0 +1,157 @@
+<div class="main-content">
+  <div class="map-base" [ngClass]="{ active: isMapActive }">
+    <div class="footsteps footsteps-1">
+      <div class="footstep left"></div>
+      <div class="footstep right"></div>
+      <div class="scroll-name">
+        <p>{{ guestName }}</p>
+      </div>
+    </div>
+    <div class="footsteps footsteps-2">
+      <div class="footstep left"></div>
+      <div class="footstep right"></div>
+      <div class="scroll-name">
+        <p>Никита и Аня</p>
+      </div>
+    </div>
+    <div class="map-flap flap--1">
+      <div class="map-flap__front"></div>
+      <div class="map-flap__back"></div>
+    </div>
+    <div class="map-flap flap--2">
+      <div class="map-flap__front"></div>
+      <div class="map-flap__back"></div>
+    </div>
+    <div class="map-side side-1">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/8.png');
+        "
+      ></div>
+      <div class="back"></div>
+    </div>
+    <div class="map-side side-2">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/18.png');
+        "
+      ></div>
+      <div class="back"></div>
+    </div>
+    <div class="map-side side-3">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/7.png');
+        "
+      ></div>
+      <div class="back"></div>
+    </div>
+    <div class="map-side side-4">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/10.png');
+        "
+      ></div>
+    </div>
+    <div class="map-side side-5" (click)="onToggleClick()">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/6.png');
+        "
+      ></div>
+      <div class="back"></div>
+    </div>
+    <div class="map-side side-6" (click)="onToggleClick()">
+      <div
+        class="front"
+        style="
+          --image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/11.png');
+        "
+      ></div>
+      <div class="back"></div>
+    </div>
+  </div>
+</div>
+<div class="instructions">
+  <button (click)="onToggleClick()" class="js-toggle toggle-map">
+    Открыть приглашение
+  </button>
+</div>
+<img
+  src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/corner-left.png"
+  alt=""
+  class="nav-bar-corner left img-fluid"
+/>
+<img
+  src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/corner-right.png"
+  alt=""
+  class="nav-bar-corner right img-fluid"
+/>
+<img
+  src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/corner-bottom-left.png"
+  alt=""
+  class="nav-bar-corner bottom-left img-fluid"
+/>
+<img
+  src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/corner-bottom-right.png"
+  alt=""
+  class="nav-bar-corner bottom-right img-fluid"
+/>
+<video
+  loop
+  muted
+  autoplay
+  oncanplay="this.play()"
+  onloadedmetadata="this.muted = true"
+  class="trailer-video"
+>
+  <source
+    src="https://cdn-hogwartslegacy.warnerbrosgames.com/home/hero.mp4?c=b"
+    type="video/mp4"
+  />
+</video>
+<div class="audio-container">
+  <audio src="assets/music.mp3" loop preload="auto"></audio>
+</div>
+<div class="invite__wrapper" [ngClass]="{ active: isInviteActive }">
+  <div class="invite__text">
+    <div class="invite__name">{{ guestName }} ,</div>
+    <p class="small__text">
+      Мы будем счастливы разделить с {{ guestCount }} радость очень особенного
+      для нас дня
+    </p>
+    <div class="invite__date">В пятницу, 13 сентября</div>
+    <div class="invite__title">Состоится наша свадьба</div>
+    <p class="small__text">
+      {{ mainText }}
+    </p>
+    <div class="invite__time">
+      Ждём в {{ arrivalTime }} в Лобби-баре гостиницы Украина
+    </div>
+    <p class="small__text">
+      После росписи мы приглашаем всех разделить с нами бранч в Кафе ПушкинЪ и
+      отметить это событие
+    </p>
+    <img src="assets/hints.png" style="width: 170px" />
+    <p class="small__text">
+      Если есть желание подарить цветы — предлагаем сделать это в другой раз.
+      Уверены, что скоро мы увидимся у нас дома!
+    </p>
+    <p class="small__text">
+      У нас нет дресс-кода, которого нужно придерживаться. Приветствуются
+      необычные или винтажные детали в праздничном наряде.
+    </p>
+    <p class="small__text">
+      Мы будем рады любому подарку, но если нет определенной задумки, лучший
+      подарок - это конверт
+      <img src="assets/convert.png" style="width: 40px" />
+    </p>
+    <img src="assets/dh.png" style="width: 170px" />
+  </div>
+  <img src="assets/invite-bg.png" alt="" class="invite-bg" />
+</div>

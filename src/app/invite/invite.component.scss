@@ -1,0 +1,695 @@
+@font-face {
+  font-family: "Tolkien"; /* Уникальное имя шрифта */
+  src: url("../../../src/assets/Tolkien.ttf") format("truetype"); /* Путь к файлу шрифта */
+  font-weight: normal; /* Толщина шрифта */
+  font-style: normal; /* Стиль шрифта */
+}
+
+body {
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+}
+/*invite */
+.invite__wrapper {
+  position: absolute;
+  width: 95%;
+  max-width: 600px;
+  height: 96%;
+  z-index: 9999;
+  top: 2%;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  left: -500%;
+}
+.invite-bg {
+  width: 100%;
+  max-width: 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  height: 100%;
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    0 20px 30px -20px rgba(182, 148, 81, 0.2);
+}
+.invite__wrapper.active {
+  transition: all 3s ease-in-out;
+  opacity: 1;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.invite__text {
+  font-family: "Tolkien", sans-serif;
+  box-sizing: border-box;
+  padding: 10px;
+  position: fixed;
+  z-index: -5;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  z-index: 9999;
+  opacity: 1;
+  color: #121212; /* Темный оттенок синего для имени */
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  line-height: 110%;
+  text-shadow: 0px 0px 1px #5a5a5a;
+}
+
+.invite__name {
+  font-size: 32px;
+}
+
+.small__text {
+}
+
+.invite__date {
+  font-size: 28px;
+}
+
+.invite__title {
+  font-size: 32px;
+}
+
+.invite__time {
+}
+@media (max-width: 396px) {
+  .invite__text {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 17px;
+    line-height: 105%;
+  }
+  .invite__name {
+    font-size: 28px;
+    line-height: 105%;
+  }
+  .invite__title {
+    font-size: 28px;
+    line-height: 105%;
+  }
+}
+/*общее*/
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: -1;
+}
+.nav-bar-corner {
+  position: absolute;
+  top: 0;
+}
+.nav-bar-corner.left {
+  left: 0;
+  height: 200px;
+}
+.nav-bar-corner.right {
+  right: 0;
+  height: 200px;
+}
+.nav-bar-corner.bottom-left {
+  left: 0;
+  bottom: 0;
+  top: unset;
+  height: 200px;
+}
+.nav-bar-corner.bottom-right {
+  right: 0;
+  bottom: 0;
+  top: unset;
+  height: 200px;
+}
+@media (max-width: 430px) {
+  .nav-bar-corner.left {
+    height: 100px;
+  }
+  .nav-bar-corner.right {
+    height: 100px;
+  }
+  .nav-bar-corner.bottom-left {
+    height: 70px;
+  }
+  .nav-bar-corner.bottom-right {
+    height: 70px;
+  }
+}
+.main-content {
+  overflow: hidden !important;
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+  height: 85vh; /* Высота блока равна высоте окна */
+  overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
+  padding: 0 20px; /* Добавляем горизонтальные отступы (если нужно) */
+  box-sizing: border-box; /* Включаем padding в расчет ширины и высоты */
+}
+@media (max-width: 430px) {
+  .main-content {
+    height: 80vh;
+  }
+}
+footer {
+  text-align: center;
+  margin: 4em auto;
+  width: 100%;
+}
+footer a {
+  text-decoration: none;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px dashed #fff;
+  color: #fff;
+  margin: 5px;
+}
+footer a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+footer a .icons {
+  margin-top: 12px;
+  display: inline-block;
+  font-size: 20px;
+}
+.main-content {
+  text-align: center;
+}
+.map-base {
+  width: 306px;
+  height: 600px;
+  margin: auto;
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/9.png")
+    center center / cover;
+  position: relative;
+  display: inline-block;
+}
+.map-flap {
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  transition: 0.5s ease;
+  top: 25%;
+}
+.map-flap__front,
+.map-flap__back {
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.map-flap__back {
+  transform: scale(-1) rotateY(180deg);
+}
+.map-flap.flap--1 {
+  box-shadow: 0 -1px 6px rgba(97, 83, 73, 0.5);
+}
+.map-flap.flap--1 .map-flap__front {
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-1.png")
+    center left / cover;
+}
+.map-flap.flap--1 .map-flap__back {
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-3.png") -3px
+    0 / cover;
+}
+.map-flap.flap--2 {
+  box-shadow: 0 1px 6px rgba(97, 83, 73, 0.5);
+  top: 50%;
+}
+.map-flap.flap--2 .map-flap__front {
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-2.png")
+    center left / cover;
+}
+.map-flap.flap--2 .map-flap__back {
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-4.png") -3px
+    0 / cover;
+}
+.map-side {
+  height: 600px;
+  width: 152px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: 0.3s ease;
+}
+.map-side .front,
+.map-side .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  background-image: var(--image);
+  backface-visibility: hidden;
+}
+.map-side .back {
+  background-image: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/back.png);
+}
+.map-side {
+  top: 0;
+}
+.map-side.side-1 {
+  left: 0;
+  margin-left: 1.5px;
+  box-shadow: 0 0 10px 3px rgba(182, 148, 81, 0.5),
+    0 0 20px 6px rgba(182, 148, 81, 0.4), 0 0 30px 9px rgba(182, 148, 81, 0.3),
+    0 0 40px 12px rgba(182, 148, 81, 0.2);
+}
+.map-base.active .map-side.side-1 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    0 20px 30px -20px rgba(182, 148, 81, 0.2);
+}
+.map-side.side-2 {
+  left: 50%;
+  margin-left: -2px;
+  box-shadow: 0 0 10px 3px rgba(182, 148, 81, 0.5),
+    /* Первый слой свечения */ 0 0 20px 6px rgba(182, 148, 81, 0.4),
+    /* Второй слой свечения */ 0 0 30px 9px rgba(182, 148, 81, 0.3),
+    /* Третий слой свечения */ 0 0 40px 12px rgba(182, 148, 81, 0.2);
+}
+.map-base.active .map-side.side-2 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
+}
+.map-base.active .map-side.side-3 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
+}
+.map-side.side-3 {
+  left: 0;
+  margin-left: 3px;
+}
+.map-side.side-3 .back {
+  transform: rotateY(180deg);
+}
+.map-side.side-4 {
+  left: 50%;
+  margin-left: -1px;
+}
+.map-base.active .map-side.side-4 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
+}
+.map-side.side-4 .back {
+  transform: rotateY(180deg);
+}
+.map-side.side-5 {
+  left: 0;
+  cursor: pointer;
+}
+.map-base.active .map-side.side-5 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    0 20px 30px -20px rgba(182, 148, 81, 0.2);
+}
+.map-side.side-5 .back {
+  background-image: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/1.png);
+}
+.map-side.side-6 {
+  left: 50%;
+  cursor: pointer;
+}
+.map-base.active .map-side.side-6 {
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    0 20px 30px -20px rgba(182, 148, 81, 0.2);
+}
+.map-side.side-6 .front {
+  background-size: 99.5%;
+}
+.map-side.side-6 .back {
+  background-image: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/17.png);
+}
+.invite-photo {
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -10;
+  opacity: 0;
+  transition: all 3s ease-in-out;
+  box-shadow: 0 -5px 15px -5px rgba(63, 63, 63, 0.5),
+    0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    0 20px 30px -20px rgba(182, 148, 81, 0.2);
+}
+.scroll-name {
+  position: absolute;
+  bottom: 100px;
+  left: -85px;
+  width: 200px;
+  height: 38px;
+  font: 15px Satisfy, cursive;
+  text-align: center;
+  background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/scroll.svg")
+    center center / cover;
+  z-index: 10;
+  color: #615349;
+  cursor: default;
+  opacity: 0;
+}
+.scroll-name p {
+  margin: 7px 0 0 15px;
+}
+.footstep {
+  position: absolute;
+  background: #615349;
+  width: 6px;
+  height: 12px;
+  border-radius: 80% 80% 70% 70%/130% 130% 25% 25%;
+  z-index: 10;
+  opacity: 0;
+}
+.footstep:before {
+  content: "";
+  position: absolute;
+  border-radius: 6px;
+  width: 5px;
+  height: 5px;
+  top: 110%;
+  left: 0px;
+  background: #615349;
+  border-radius: 0 0 100% 100%;
+}
+.footstep.left {
+  transform: rotate(5deg);
+}
+.footstep.right {
+  transform: rotate(-3deg) translateY(15px) translateX(10px);
+}
+.footsteps-1 .footstep.left {
+  bottom: 150px;
+  left: 18px;
+  transform: rotate(35deg);
+}
+.footsteps-1 .footstep.right {
+  bottom: 150px;
+  left: 28px;
+  transform: rotate(30deg);
+}
+.footsteps-2 .footstep.left {
+  bottom: 285px;
+  left: 280px;
+  transform: rotate(-90deg);
+}
+.footsteps-2 .footstep.right {
+  bottom: 275px;
+  left: 285px;
+  transform: rotate(-85deg);
+}
+.footsteps-2 .scroll-name {
+  bottom: 300px;
+  left: 185px;
+}
+.instructions {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.instructions p {
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.toggle-map {
+  background-size: cover;
+  border: 2px solid #b69451;
+  color: #f1ce89;
+  font-size: 2.35rem;
+  border-radius: 0.5rem;
+  font-family: Tongari Regular, serif;
+  font-weight: 400;
+  left: 50%;
+  cursor: pointer;
+  max-width: 30rem;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  width: 90%;
+  z-index: 1;
+  background-image: url(https://cdn-hogwartslegacy.warnerbrosgames.com/static/available-now-bg.jpg);
+}
+.toggle-map:focus {
+  outline: none;
+}
+.map-base.active .flap--1 {
+  transform: rotateX(180deg);
+  transform-origin: top center;
+  transition: 0.6s transform 1.5s;
+}
+.map-base.active .flap--2 {
+  transform: rotateX(180deg);
+  transform-origin: bottom center;
+  transition: 0.6s transform 1.8s;
+}
+.map-base.active .side-1 {
+  transform-origin: center left;
+  transform: rotateY(180deg) skewY(2deg);
+  transition: 0.5s all ease-in-out 0.6s;
+}
+.map-base.active .side-1 .front {
+  transform: rotateY(180deg);
+}
+.map-base.active .side-2 {
+  transform: rotateY(180deg) skewY(-2deg);
+  transform-origin: center right;
+  transition: 0.5s all ease-in-out 0.6s;
+}
+.map-base.active .side-2 .front {
+  transform: rotateY(180deg);
+}
+.map-base.active .side-3 {
+  left: -50%;
+  transform: skewY(2deg) translateX(-100%);
+  top: 8px;
+  transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s;
+}
+.map-base.active .side-4 {
+  left: 100%;
+  transform: skewY(-2deg) translateX(100%);
+  top: 8px;
+  margin-left: -7px;
+  transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s,
+    0.5s margin ease 0.8s;
+}
+.map-base.active .side-5 {
+  left: -100%;
+  transform-origin: center left;
+  transform: rotateY(180deg);
+  transition: 0.5s transform, 0.7s left 0.8s, 0.2s margin 0.8s;
+  top: 0px;
+  margin-left: 4px;
+}
+.map-base.active .side-5 .front {
+  transform: rotateY(180deg);
+  transition: 0.1s transform;
+}
+.map-base.active .side-6 {
+  left: 150%;
+  transform: rotateY(180deg);
+  transform-origin: center right;
+  margin-left: -8px;
+  transition: 0.5s transform 0.3s, 0.7s left 0.8s, 0.5s top 0.8s,
+    0.5s margin 0.8s;
+}
+.map-base.active .side-6 .front {
+  transform: rotateY(180deg);
+  transition: 0.1s transform;
+}
+.map-base.active .footstep,
+.map-base.active .scroll-name {
+  opacity: 1;
+  transition: 0.5s opacity 2.5s;
+}
+.map-base.active .footsteps-1 .footstep {
+  animation: 15s footsteps-1-left ease 3s forwards;
+}
+.map-base.active .footsteps-1 .scroll-name {
+  animation: 15s scroll-1 ease 3s forwards;
+}
+.map-base.active .footsteps-2 .footstep {
+  animation: 15s footsteps-2 ease 3.2s forwards;
+}
+.map-base.active .footsteps-2 .scroll-name {
+  animation: 15s scroll-2 ease 3.2s forwards;
+}
+@keyframes footsteps-1-left {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    transform: translate(8px, -15px) rotate(30deg);
+  }
+  20% {
+    transform: translate(30px, -45px) rotate(30deg);
+  }
+  30% {
+    transform: translate(40px, -75px) rotate(20deg);
+  }
+  40% {
+    transform: translate(45px, -100px) rotate(10deg);
+  }
+  50% {
+    transform: translate(50px, -125px) rotate(10deg);
+  }
+  60% {
+    transform: translate(50px, -135px) rotate(10deg);
+  }
+  70% {
+    transform: translate(50px, -135px) rotate(15deg);
+  }
+  80% {
+    transform: translate(50px, -135px) rotate(20deg);
+  }
+  100% {
+    transform: translate(50px, -135px) rotate(20deg);
+  }
+}
+@keyframes footsteps-1-right {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    transform: translate(8px, -15px) rotate(30deg);
+  }
+  20% {
+    transform: translate(30px, -45px) rotate(30deg);
+  }
+  30% {
+    transform: translate(40px, -75px) rotate(20deg);
+  }
+  40% {
+    transform: translate(45px, -100px) rotate(10deg);
+  }
+  50% {
+    transform: translate(50px, -125px) rotate(10deg);
+  }
+  60% {
+    transform: translate(50px, -135px) rotate(10deg);
+  }
+  70% {
+    transform: translate(50px, -135px) rotate(15deg);
+  }
+  80% {
+    transform: translate(50px, -135px) rotate(20deg);
+  }
+  100% {
+    transform: translate(50px, -135px) rotate(20deg);
+  }
+}
+/* Анимация свечения */
+@keyframes magic-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes footsteps-2 {
+  80% {
+    transform: translate(-170px, -25px) rotate(-90deg);
+  }
+  100% {
+    transform: translate(-180px, -25px) rotate(-90deg);
+  }
+}
+@keyframes scroll-1 {
+  10% {
+    transform: translate(8px, -15px);
+  }
+  20% {
+    transform: translate(30px, -45px);
+  }
+  30% {
+    transform: translate(40px, -75px);
+  }
+  40% {
+    transform: translate(45px, -100px);
+  }
+  50% {
+    transform: translate(50px, -125px);
+  }
+  60% {
+    transform: translate(50px, -135px);
+  }
+  100% {
+    transform: translate(50px, -135px);
+  }
+}
+@keyframes scroll-2 {
+  80% {
+    transform: translate(-170px, -25px);
+  }
+  100% {
+    transform: translate(-180px, -25px);
+  }
+}
