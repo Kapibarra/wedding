@@ -13,45 +13,49 @@ body {
   padding-bottom: 5vh;
   height: 100vh;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 !important;
 }
 /*invite */
 .invite__wrapper {
   position: absolute;
-  width: 95%;
+  width: 100%;
   max-width: 600px;
-  height: 96%;
+  height: 100%;
   z-index: 9999;
-  top: 2%;
-  bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
   display: flex;
   justify-content: center;
-  left: -500%;
+  left: -200%;
+  background-image: url("../../assets/invite-bg.png");
+  background-size: cover;
+  box-sizing: border-box;
+  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
+    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
+    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
+    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
+    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
 }
 .invite-bg {
   width: 100%;
   max-width: 600px;
-  position: absolute;
+  height: 100%;
+  max-height: 850px;
+  box-sizing: border-box;
+  position: relative;
   top: 0;
   left: 0;
   object-fit: cover;
-  height: 100%;
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    0 20px 30px -20px rgba(182, 148, 81, 0.2);
 }
 .invite__wrapper.active {
-  transition: all 3s ease-in-out;
+  transition: all 1s ease-in-out;
   opacity: 1;
   z-index: 10;
+  margin-top: 60px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -96,12 +100,20 @@ p {
   margin-top: 12px;
   margin-bottom: 12px;
 }
+.watermark {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.5;
+}
 @media (max-width: 430px) {
   .invite__text {
     padding-top: 30px;
     padding-bottom: 30px;
     font-size: 18px;
     line-height: 105%;
+  }
+  .watermark {
+    bottom: 40px;
   }
   .invite__name {
     font-size: 28px;
@@ -111,6 +123,9 @@ p {
     font-size: 28px;
     line-height: 105%;
   }
+  .invite-bg {
+    max-height: 750px;
+  }
 }
 @media (max-width: 396px) {
   .invite__text {
@@ -118,6 +133,7 @@ p {
     padding-bottom: 30px;
     font-size: 17px;
     line-height: 105%;
+    box-sizing: border-box;
   }
   .invite__name {
     font-size: 28px;
@@ -140,7 +156,7 @@ video {
   z-index: -1;
 }
 .nav-bar-corner {
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 .nav-bar-corner.left {
@@ -165,16 +181,16 @@ video {
 }
 @media (max-width: 430px) {
   .nav-bar-corner.left {
-    height: 100px;
+    height: 50px;
   }
   .nav-bar-corner.right {
-    height: 100px;
+    height: 50px;
   }
   .nav-bar-corner.bottom-left {
-    height: 70px;
+    height: 50px;
   }
   .nav-bar-corner.bottom-right {
-    height: 70px;
+    height: 50px;
   }
 }
 .main-content {
@@ -182,14 +198,17 @@ video {
   display: flex;
   justify-content: center; /* Центрирование по горизонтали */
   align-items: center; /* Центрирование по вертикали */
-  height: 85vh; /* Высота блока равна высоте окна */
+  height: 680px; /* Высота блока равна высоте окна */
   overflow: hidden; /* Скрываем содержимое, выходящее за пределы */
   padding: 0 20px; /* Добавляем горизонтальные отступы (если нужно) */
   box-sizing: border-box; /* Включаем padding в расчет ширины и высоты */
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 @media (max-width: 430px) {
   .main-content {
     height: 80vh;
+    margin-top: 30px;
   }
 }
 footer {
@@ -299,47 +318,16 @@ footer a .icons {
 .map-side.side-1 {
   left: 0;
   margin-left: 1.5px;
-  box-shadow: 0 0 10px 3px rgba(182, 148, 81, 0.5),
-    0 0 20px 6px rgba(182, 148, 81, 0.4), 0 0 30px 9px rgba(182, 148, 81, 0.3),
-    0 0 40px 12px rgba(182, 148, 81, 0.2);
 }
 .map-base.active .map-side.side-1 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    0 20px 30px -20px rgba(182, 148, 81, 0.2);
 }
 .map-side.side-2 {
   left: 50%;
   margin-left: -2px;
-  box-shadow: 0 0 10px 3px rgba(182, 148, 81, 0.5),
-    /* Первый слой свечения */ 0 0 20px 6px rgba(182, 148, 81, 0.4),
-    /* Второй слой свечения */ 0 0 30px 9px rgba(182, 148, 81, 0.3),
-    /* Третий слой свечения */ 0 0 40px 12px rgba(182, 148, 81, 0.2);
 }
 .map-base.active .map-side.side-2 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
 }
 .map-base.active .map-side.side-3 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
 }
 .map-side.side-3 {
   left: 0;
@@ -353,14 +341,6 @@ footer a .icons {
   margin-left: -1px;
 }
 .map-base.active .map-side.side-4 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Верхняя тень */ 0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    /* Нижняя тень */ 0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Верхняя тень */ 0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    /* Нижняя тень */ 0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Верхняя тень */ 0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    /* Нижняя тень */ 0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    /* Верхняя тень */ 0 20px 30px -20px rgba(182, 148, 81, 0.2); /* Нижняя тень */
 }
 .map-side.side-4 .back {
   transform: rotateY(180deg);
@@ -370,14 +350,6 @@ footer a .icons {
   cursor: pointer;
 }
 .map-base.active .map-side.side-5 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    0 20px 30px -20px rgba(182, 148, 81, 0.2);
 }
 .map-side.side-5 .back {
   background-image: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/1.png);
@@ -387,14 +359,6 @@ footer a .icons {
   cursor: pointer;
 }
 .map-base.active .map-side.side-6 {
-  box-shadow: 0 -5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    0 20px 30px -20px rgba(182, 148, 81, 0.2);
 }
 .map-side.side-6 .front {
   background-size: 99.5%;
@@ -411,14 +375,6 @@ footer a .icons {
   z-index: -10;
   opacity: 0;
   transition: all 3s ease-in-out;
-  box-shadow: 0 -5px 15px -5px rgba(63, 63, 63, 0.5),
-    0 5px 15px -5px rgba(182, 148, 81, 0.5),
-    0 -10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 10px 20px -10px rgba(182, 148, 81, 0.4),
-    0 -15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 15px 25px -15px rgba(182, 148, 81, 0.3),
-    0 -20px 30px -20px rgba(182, 148, 81, 0.2),
-    0 20px 30px -20px rgba(182, 148, 81, 0.2);
 }
 .scroll-name {
   position: absolute;
@@ -437,6 +393,7 @@ footer a .icons {
 }
 .scroll-name p {
   margin: 7px 0 0 15px;
+  font-family: "Tolkien", sans-serif;
 }
 .footstep {
   position: absolute;
@@ -490,7 +447,7 @@ footer a .icons {
 }
 .instructions {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 5px;
   color: #fff;
 }
 .instructions p {
@@ -501,9 +458,9 @@ footer a .icons {
   background-size: cover;
   border: 2px solid #b69451;
   color: #f1ce89;
-  font-size: 2.35rem;
+  font-size: 24px;
   border-radius: 0.5rem;
-  font-family: Tongari Regular, serif;
+  font-family: "Tolkien", sans-serif;
   font-weight: 400;
   left: 50%;
   cursor: pointer;

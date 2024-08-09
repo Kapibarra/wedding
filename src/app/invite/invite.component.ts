@@ -16,6 +16,7 @@ export class InviteComponent implements OnInit {
   guestCount: string = '';
   mainText: string = '';
   id: string | null = null;
+  buttonText: string = 'Торжественно клянусь, что замышлляю только шалость '; // Начальный текст кнопки
 
   private guestData: {
     [key: string]: {
@@ -90,6 +91,7 @@ export class InviteComponent implements OnInit {
     this.id = id;
     console.log('ID:', this.id);
     this.updateGuestInfo();
+    this.playAudio();
   }
   updateGuestInfo(): void {
     if (this.id) {
@@ -114,9 +116,19 @@ export class InviteComponent implements OnInit {
     this.isMapActive = !this.isMapActive;
     setTimeout(() => {
       this.isInviteActive = true;
-    }, 10000); // Пример 10 секунд
+      if (this.isMapActive) {
+        this.buttonText = 'Приглашение ниже';
+      } else {
+        this.buttonText = 'Открыть карту';
+      }
+    }, 5000); // Задержка 1 секунда
   }
-
+  scrollDownBy850px(): void {
+    window.scrollBy({
+      top: 850,
+      behavior: 'smooth',
+    });
+  }
   playAudio(): void {
     if (this.hasInteracted) {
       const audio = <HTMLAudioElement>document.getElementById('myAudio');
